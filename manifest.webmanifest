@@ -1,0 +1,8 @@
+{
+  "name": "AtB Mobillett",
+  "short_name": "AtB Mobillett",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#000",
+  "description": "AtB Mobillett",
+}
