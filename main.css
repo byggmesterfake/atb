@@ -267,7 +267,7 @@ a#qrSection {
     width: 100vw;
     height: 100vh;
     border: 0;
-    padding: 0;
+    padding: calc(50vh - 50vw) 0 0 0;
     box-sizing: border-box;
     visibility: hidden;
     opacity: 0;
@@ -292,7 +292,7 @@ a#qrSection > p {
 #qrdiv {
     position: relative;
     display: block;
-    margin-top: calc(50vh - 50vw);
-    margin-bottom: 0;
-    margin-left: 30px;
+    margin: auto;
+    width: 50vw;
+    height: 50vw;
 }

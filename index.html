@@ -121,8 +121,8 @@
 
 </div>
 <a id="qrSection" onclick="toggleQR()">
+    <h2 id="qrTextField">Q5XRKQ<br>562</h2>
     <div id="qrdiv"></div>
-    <h2 id="qrTextField">591<br>Q5XIYQ</h2>
     <p>TAP TO CLOSE</p>
 </a>
 <script>
@@ -152,7 +152,7 @@
     let qrcode;
 
     dataDefault = {
-        appVersion: "1.2",
+        appVersion: "1.3",
         typer: [
             {name: 'adult', price: 37, count: 1},
             {name: 'child', price: 19, count: 0},
@@ -410,12 +410,12 @@
             + ":" + (data.timeValid.getSeconds() < 10 ? '0' : '') + data.timeValid.getSeconds();
         fullcode += ";" + makeString(64, "0123456789abcdef");
 
-        qrTextField.innerHTML = d1 + "<br>" + d2;
+        qrTextField.innerHTML = d2 + "<br><br>" + d1;
         qrdiv.innerHTML = "";
         qrcode = new QRCode(qrdiv, {
             text: fullcode,
-            width: window.innerWidth - 60,
-            height: window.innerWidth - 60,
+            width: window.innerWidth/2,
+            height: window.innerWidth/2,
             colorDark: "#000000",
             colorLight: "#ffffff",
             correctLevel: QRCode.CorrectLevel.H
@@ -478,6 +478,7 @@
     function checkEula() {
         let eula = JSON.parse(localStorage.getItem('atb_eula'));
         if (eula !== true) {
+            document.getElementsByTagName("body")[0].style.overflowY = "scroll";
             main.innerHTML = `
                 <article style="
                         display: block;
