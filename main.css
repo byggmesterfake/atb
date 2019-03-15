@@ -138,7 +138,7 @@ p{
     background-image: url('progress.png');
     background-repeat: repeat-x;
     background-size: 6vh 100%;
-    animation: progressAnimation 3s linear infinite;
+    animation: progressAnimation 1.5s linear infinite;
 }
 #timer {
     font-size: 4vh;
