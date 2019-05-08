@@ -152,7 +152,7 @@
     let qrcode;
 
     dataDefault = {
-        appVersion: "1.3.2",
+        appVersion: "1.3.1",
         typer: [
             {name: 'adult', price: 38, count: 1},
             {name: 'child', price: 19, count: 0},
@@ -476,13 +476,9 @@
     }
 
     function checkEula() {
+        console.log(localStorage.getItem('atb_eula'));
         let eula = JSON.parse(localStorage.getItem('atb_eula'));
-        if (eula == null) {
-            localStorage.setItem('atb_eula', JSON.stringify(false));
-        }
-
         if (eula !== true) {
-
             document.getElementsByTagName("body")[0].style.overflowY = "scroll";
             main.innerHTML = `
                 <article style="
@@ -516,18 +512,9 @@
                             border: solid lightgray 2px;
                             font-size: 1.1em;
                         ">
-                        <br>
-                    <i>Godkjenner du alle nevnte betingelser for bruk?</i>
-                    <input type="text" id="inp_eula2" placeholder="Ja / Nei"
-                        style="
-                            display: block;
-                            padding: 0.3em;
-                            border: solid lightgray 2px;
-                            font-size: 1.1em;
-                        ">
                     <br>
                     <i>Tar du som bruker ansvar for ikke forsøke å benytte denne nettsiden som billettbevis?</i>
-                    <input type="text" id="inp_eula3" placeholder="Ja / Nei"
+                    <input type="text" id="inp_eula2" placeholder="Ja / Nei"
                         style="
                             display: block;
                             padding: 0.3em;
@@ -570,15 +557,10 @@
     function setEula() {
 
         let eula = document.getElementById("inp_eula1").value.toLowerCase() === "ja"
-            && document.getElementById("inp_eula2").value.toLowerCase() === "ja"
-            && document.getElementById("inp_eula3").value.toLowerCase() === "ja";
-
+                && document.getElementById("inp_eula2").value.toLowerCase() === "ja";
 
         localStorage.setItem('atb_eula', JSON.stringify(eula));
-
-        setTimeout(function () {
-            location.reload();
-        }, 200);
+        location.reload();
     }
     checkEula();
 
