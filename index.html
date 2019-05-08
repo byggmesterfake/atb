@@ -478,6 +478,7 @@
     function checkEula() {
         let eula = JSON.parse(localStorage.getItem('atb_eula'));
         if (eula !== true) {
+            localStorage.setItem('atb_eula', JSON.stringify(false));
             document.getElementsByTagName("body")[0].style.overflowY = "scroll";
             main.innerHTML = `
                 <article style="
